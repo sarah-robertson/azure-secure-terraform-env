@@ -31,3 +31,13 @@ This project deploys a secure Azure baseline using Terraform, focusing on networ
 
 ## Diagram
 ![Architecture](azureSecEnvDiagram.drawio-1.png)
+
+## CI / Automation
+
+This project includes a GitHub Actions CI pipeline that automatically:
+- Runs Terraform formatting checks
+- Validates configuration
+- Authenticates to Azure
+- Generates an infrastructure plan
+
+This ensures infrastructure changes are reviewed and validated before deployment.
