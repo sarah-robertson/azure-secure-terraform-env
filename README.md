@@ -39,7 +39,7 @@ The solution demonstrates not just how to deploy Azure infrastructure, but how t
 - Identity and secrets management:
     - Azure Key Vault used for secure secret storage
     - RBAC-based access control (no legacy access policies)
-    - Secrets intentionally kept out of Terraform state
+    - Secrets intentionally kept out of Terraform state (added using Azure CLI to avoid storing sensitive values in Terraform state)
 - Monitoring & audit:
     - Centralised observability via Azure Monitor and Log Analytics
     - Subscription Activity Logs captured for audit, troubleshooting, and security visibility
