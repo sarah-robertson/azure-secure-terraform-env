@@ -45,6 +45,36 @@ resource "azurerm_network_security_group" "nsg_mgmt" {
   resource_group_name = azurerm_resource_group.rg.name
 }
 
+# Diagnostics for NSG - app (logs only)
+resource "azurerm_monitor_diagnostic_setting" "nsg_app_to_law" {
+  name                       = "diag-nsg-app-to-law"
+  target_resource_id         = azurerm_network_security_group.nsg_app.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+
+  enabled_log {
+    category = "NetworkSecurityGroupEvent"
+  }
+
+  enabled_log {
+    category = "NetworkSecurityGroupRuleCounter"
+  }
+}
+
+# Diagnostics for NSG - mgmt (logs only)
+resource "azurerm_monitor_diagnostic_setting" "nsg_mgmt_to_law" {
+  name                       = "diag-nsg-mgmt-to-law"
+  target_resource_id         = azurerm_network_security_group.nsg_mgmt.id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.law.id
+
+  enabled_log {
+    category = "NetworkSecurityGroupEvent"
+  }
+
+  enabled_log {
+    category = "NetworkSecurityGroupRuleCounter"
+  }
+}
+
 # App NSG rule: allow inbound HTTPS (443) from Internet
 resource "azurerm_network_security_rule" "app_allow_https_in" {
   name                        = "allow-https-in"
