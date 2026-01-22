@@ -57,13 +57,15 @@ The solution demonstrates not just how to deploy Azure infrastructure, but how t
 ## Diagram
 ![Architecture](azureSecEnvDiagram.drawio-1.png)
 
+---
 
-## CI / Automation
-This project includes a GitHub Actions CI pipeline that automatically:
-- Runs Terraform formatting (fmt) checks
+## CI / Automation (GitHub Actions)
+This project includes a GitHub Actions CI workflow that automatically:
+- Runs Terraform formatting checks
 - Validates configuration
-- Authenticates to Azure
-- Generates an infrastructure plan on push
+- Authenticates to Azure securely
+- Generates a Terraform plan on push
 
 This ensures infrastructure changes are reviewed and validated before deployment.
 
+---
