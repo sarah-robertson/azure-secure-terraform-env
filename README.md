@@ -18,6 +18,20 @@ The solution demonstrates not just how to deploy Azure infrastructure, but how t
   - Mgmt subnet allows SSH (22) only from admin IP
 - Log Analytics Workspace (centralised logging)
 
+## Cost Estimate
+**Monthly Azure costs for this baseline (UK South region):**
+
+| Resource | Estimated Cost |
+|----------|---------------|
+| Virtual Network | Free |
+| Network Security Groups | Free |
+| Log Analytics Workspace | ~£2-5 (depends on ingestion) |
+| Key Vault | ~£0.03/10k operations |
+| Azure Policy | Free |
+| **Total** | **~£5-10/month** |
+
+*Costs scale with log ingestion volume and Key Vault operations. Budget alerts configured to notify at 80% threshold.*
+
 ## Governance 
 - Log Analytics Workspace (centralised logging)
 - Azure Monitor Diagnostic Settings:
